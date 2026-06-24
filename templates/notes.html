@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Мої завдання</h2>
+
+<div class="filters">
+    <a href="{% url 'notes' %}">Всі</a>
+    <a href="?filter=active">Активні</a>
+    <a href="?filter=done">Виконані</a>
+</div>
+
+<h3>Додати завдання</h3>
+
+<form method="post">
+
+    {% csrf_token %}
+
+    <label>Назва</label>
+    {{ form.title }}
+
+    <label>Опис</label>
+    {{ form.content }}
+
+    <button type="submit">
+        Додати
+    </button>
+
+</form>
+
+<h3>Список завдань</h3>
+
+{% for note in notes %}
+
+<div class="task-card">
+
+    <h4>
+        {{ note.title }}
+    </h4>
+
+    <p>
+        {{ note.content }}
+    </p>
+
+    <p>
+        Створено:
+        {{ note.created_at }}
+    </p>
+
+    <p>
+        Статус:
+
+        {% if note.done %}
+            ✅ Виконано
+        {% else %}
+            ❌ Активне
+        {% endif %}
+    </p>
+
+    <a href="/note/{{ note.id }}/toggle/">
+        Змінити статус
+    </a>
+
+    <a href="/note/{{ note.id }}/delete/">
+        Видалити
+    </a>
+
+</div>
+
+<hr>
+
+{% empty %}
+
+<p>
+    Завдань поки немає.
+</p>
+
+{% endfor %}
+
+{% endblock %}

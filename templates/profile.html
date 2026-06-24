@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Мій профіль</h2>
+
+<div class="profile-grid">
+
+    <div class="profile-card">
+
+        <h3>Редагування профілю</h3>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <label>Ім'я</label>
+            {{ form.first_name }}
+
+            <label>Прізвище</label>
+            {{ form.last_name }}
+
+            <label>Email</label>
+            {{ form.email }}
+
+            <label>Про себе</label>
+            {{ form.bio }}
+
+            <button type="submit">
+                Зберегти
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="profile-card">
+
+        <h3>Інформація</h3>
+
+        <p><strong>Логін:</strong> {{ user.username }}</p>
+
+        <p><strong>Ім'я:</strong> {{ user.first_name }}</p>
+
+        <p><strong>Прізвище:</strong> {{ user.last_name }}</p>
+
+        <p><strong>Email:</strong> {{ user.email }}</p>
+
+        <p><strong>Про себе:</strong></p>
+
+        <p>
+            {% if user.profile.bio %}
+                {{ user.profile.bio }}
+            {% else %}
+                Інформація відсутня
+            {% endif %}
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

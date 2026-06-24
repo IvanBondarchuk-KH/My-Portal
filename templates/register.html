@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Реєстрація</h2>
+
+<form method="post">
+
+    {% csrf_token %}
+
+    <label>Ім'я</label>
+    {{ form.first_name }}
+
+    <label>Прізвище</label>
+    {{ form.last_name }}
+
+    <label>Email</label>
+    {{ form.email }}
+
+    <label>Логін</label>
+    {{ form.username }}
+
+    <label>Пароль</label>
+    {{ form.password }}
+
+    <button type="submit">
+        Зареєструватися
+    </button>
+
+</form>
+
+<p>
+    Вже маєте акаунт?
+    <a href="/login/">Увійти</a>
+</p>
+
+{% endblock %}
