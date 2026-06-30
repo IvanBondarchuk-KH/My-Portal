@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ other_user.username }}
+{% endblock %}
+
+{% block content %}
+
+<h2>Чат з {{ other_user.username }}</h2>
+
+<div class="chat-box">
+
+{% for message in messages %}
+
+<div class="{% if message.sender == request.user %}my-message{% else %}other-message{% endif %}">
+
+    <strong>
+        {% if message.sender == request.user %}
+            Ви
+        {% else %}
+            {{ other_user.username }}
+        {% endif %}
+    </strong>
+
+    <p>{{ message.text }}</p>
+
+    <small>{{ message.created_at }}</small>
+
+</div>
+
+{% empty %}
+
+<p>Повідомлень ще немає.</p>
+
+{% endfor %}
+
+</div>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <textarea
+        name="text"
+        rows="4"
+        required
+        placeholder="Напишіть повідомлення..."
+    ></textarea>
+
+    <br>
+
+    <button type="submit">
+        Надіслати
+    </button>
+
+</form>
+
+{% endblock %}

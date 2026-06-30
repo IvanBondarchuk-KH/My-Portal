@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Користувачі{% endblock %}
+
+{% block content %}
+
+<h2>Користувачі</h2>
+
+{% if users %}
+<ul class="user-list">
+
+    {% for user in users %}
+    <li>
+        <a href="{% url 'chat' user.id %}">
+            {{ user.username }}
+        </a>
+    </li>
+    {% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>Немає інших користувачів.</p>
+
+{% endif %}
+
+{% endblock %}

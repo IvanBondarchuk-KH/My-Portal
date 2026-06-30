@@ -389,6 +389,59 @@ a:hover {
     opacity: 0.9;
 }
 
+.user-list,
+.dialogs{
+    list-style:none;
+    padding:0;
+}
+
+.user-list li,
+.dialogs li{
+    margin:10px 0;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.user-list a,
+.dialogs a{
+    text-decoration:none;
+    color:#222;
+    display:block;
+}
+
+.chat-box{
+    margin:20px 0;
+}
+
+.my-message{
+    background:#d7ffd7;
+    padding:12px;
+    border-radius:10px;
+    margin:10px 0;
+    text-align:right;
+}
+
+.other-message{
+    background:#eeeeee;
+    padding:12px;
+    border-radius:10px;
+    margin:10px 0;
+    text-align:left;
+}
+
+textarea{
+    width:100%;
+    padding:10px;
+    resize:vertical;
+}
+
+button{
+    margin-top:10px;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
 /* =========================
    MOBILE
 ========================= */
@@ -428,4 +481,170 @@ a:hover {
     .task-actions a {
         text-align: center;
     }
+}
+
+/* ===========================
+   4K (2560px+)
+=========================== */
+@media (min-width: 2560px) {
+
+    body{
+        font-size:22px;
+    }
+
+    main{
+        max-width:1800px;
+        margin:auto;
+    }
+
+    nav a{
+        font-size:24px;
+        padding:15px 30px;
+    }
+
+    textarea{
+        font-size:22px;
+    }
+
+    button{
+        font-size:22px;
+    }
+
+}
+
+/* ===========================
+   Laptop L (1440px)
+=========================== */
+@media (max-width: 1440px){
+
+    main{
+        width:90%;
+        margin:auto;
+    }
+
+}
+
+/* ===========================
+   Laptop (1024px)
+=========================== */
+@media (max-width:1024px){
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        justify-content:center;
+    }
+
+    main{
+        width:95%;
+    }
+
+    textarea{
+        width:100%;
+    }
+
+}
+
+/* ===========================
+   Tablet (768px)
+=========================== */
+@media (max-width:768px){
+
+    header{
+        text-align:center;
+    }
+
+    nav{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav a{
+        display:block;
+    }
+
+    .my-message,
+    .other-message{
+        width:100%;
+    }
+
+}
+
+/* ===========================
+   Mobile L (425px)
+=========================== */
+@media (max-width:425px){
+
+    body{
+        font-size:16px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+
+    textarea{
+        min-height:120px;
+    }
+
+    button{
+        width:100%;
+    }
+
+}
+
+/* ===========================
+   Mobile M (375px)
+=========================== */
+@media (max-width:375px){
+
+    body{
+        font-size:15px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    h2{
+        font-size:20px;
+    }
+
+}
+
+/* ===========================
+   Mobile S (320px)
+=========================== */
+@media (max-width:320px){
+
+    body{
+        font-size:14px;
+    }
+
+    h1{
+        font-size:20px;
+    }
+
+    h2{
+        font-size:18px;
+    }
+
+    nav a{
+        font-size:14px;
+    }
+
+    textarea{
+        font-size:14px;
+    }
+
+    button{
+        font-size:14px;
+    }
+
 }

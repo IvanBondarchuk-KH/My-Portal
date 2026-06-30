@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Profile, Note
+from .models import Profile, Note, Message
 
 
 @admin.register(Profile)
@@ -21,4 +21,18 @@ class NoteAdmin(admin.ModelAdmin):
 
     list_filter = (
         'done',
+    )
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = (
+        'sender',
+        'recipient',
+        'text',
+        'created_at'
+    )
+
+    list_filter = (
+        'sender',
+        'recipient',
     )

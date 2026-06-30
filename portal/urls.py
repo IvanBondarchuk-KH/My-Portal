@@ -52,4 +52,22 @@ urlpatterns = [
         views.delete_note,
         name='delete_note'
     ),
+
+    path(
+        'messages/', 
+        views.inbox, 
+        name='inbox'
+    ),
+
+    path(
+        'messages/users/', 
+        views.user_list, 
+        name='user_list'
+    ),
+
+    path(
+        'messages/<int:user_id>/', 
+        views.chat, 
+        name='chat'
+    ),
 ]

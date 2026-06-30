@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+Повідомлення
+{% endblock %}
+
+{% block content %}
+
+<h2>Мої діалоги</h2>
+
+{% if dialogs %}
+
+<ul class="dialogs">
+
+{% for dialog in dialogs %}
+
+<li>
+
+    <a href="{% url 'chat' dialog.partner.id %}">
+
+        <strong>{{ dialog.partner.username }}</strong>
+
+        <br>
+
+        {{ dialog.last_message.text }}
+
+        <br>
+
+        <small>{{ dialog.last_message.created_at }}</small>
+
+    </a>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>У вас ще немає переписок.</p>
+
+<a href="{% url 'user_list' %}">
+    Почати новий діалог
+</a>
+
+{% endif %}
+
+{% endblock %}
