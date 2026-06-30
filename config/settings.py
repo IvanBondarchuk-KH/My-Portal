@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-yy$uzy#1n!*+k-2na50pip!1^by2)rkv-3rf#9h82sddr(j_qj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "my-portal-7a7c.onrender.com",
+]
 
 
 # Application definition
@@ -119,7 +123,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
